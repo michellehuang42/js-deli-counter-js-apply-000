@@ -1,10 +1,30 @@
 var katzDeli = [];
 
-function takeANumber(katzDeliLine, name) {
-  katzDeliLine.push(name);
-  var n = katzDeliLine.indexOf(name);
-  return "Welcome, " + name + ". You are number " + (n+1) + " in line.";
+// function takeANumber(katzDeliLine, name) {
+//   katzDeliLine.push(name);
+//   var n = katzDeliLine.indexOf(name);
+//   return "Welcome, " + name + ". You are number " + (n+1) + " in line.";
+// }
+
+total = 0;
+
+function takeANumber(katzDeliLine) {
+  var n = total + 1;
+  reset();
+  katzDeliLine.push(n);
+  total++;
+  return n;
 }
+
+// function nowServing(deliLine) {
+//   if (deliLine.length === 0) {
+//     return "There is nobody waiting to be served!"
+//   }
+//   else {
+//     var current = deliLine.shift();
+//     return "Currently serving " + current + ".";
+//   }
+// }
 
 function nowServing(deliLine) {
   if (deliLine.length === 0) {
@@ -13,6 +33,12 @@ function nowServing(deliLine) {
   else {
     var current = deliLine.shift();
     return "Currently serving " + current + ".";
+  }
+}
+
+function reset() {
+  if (total > 500) {
+    total = 0;
   }
 }
 
